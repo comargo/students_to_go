@@ -1,0 +1,12 @@
+{% extends 'base.jinja2' %}
+{% block title %} {{ program.name }} {% endblock %}
+{% block content %}
+    <div class="container">
+    <h1>{{ program.name }}</h1>
+    <ul>
+        {% for group in program.groups|sort(attribute='name') %}
+            <li><a href="{{ url_for('show_group', program_id=program.id, group_id=group.id) }}">{{ group.name }}</a></li>
+        {% endfor %}
+    </ul>
+    </div>
+{% endblock %}

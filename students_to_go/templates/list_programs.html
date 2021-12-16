@@ -1,0 +1,12 @@
+{% extends 'base.jinja2' %}
+{% block title %}Программы{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Программы</h1>
+    <ul>
+        {% for obj in programs|sort(attribute='name' %}
+            <li><a href="{{ url_for('show_program',id=obj.id) }}">{{ obj.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

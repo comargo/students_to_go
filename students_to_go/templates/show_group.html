@@ -1,0 +1,17 @@
+{% extends 'base.jinja2' %}
+{% block title %}{{ group.program.name }} &mdash; {{ group.name }}{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>{{ group.program.name }} &mdash; {{ group.name }}</h1>
+        <ul>
+            {% for order in group.orders|sort(attribute='student.name') %}
+                <li>
+                    <a href="#" class="btn" role="button" data-bs-toggle="button">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </a>
+                    {{ order.student.name }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
